@@ -1,0 +1,193 @@
+# Week 4 - Project - Exploring the BRFSS data by Akshay Kotha {-}
+
+Refer /brfss_codebook.html for details on the BRFSS variables.
+
+---
+title: "Exploring the BRFSS data by Akshay Kotha"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+---
+
+## Setup
+
+### Load packages
+
+```{r load-packages, message = FALSE}
+library(ggplot2)
+library(dplyr)
+library(statsr)
+```
+
+### Load data
+
+```{r load-data}
+load("brfss2013.RData")
+```
+
+
+
+* * *
+
+## Part 1: Data
+There are two types of observations in general. 1. Data collected via landline telephone interviews. 2. Data collected via cellular phone interviews. It is also mentioned that all the responses were self-reported which is similar to volunteering to answer the questionnairre. When it comes to landline telephone interviews, disproportionte stratified sampling(DSS) was done which implies the results would be representative of entire population. DSS might have been done to cater for the need to represent the entire population. When it comes to cellular phone interviews, it is mentioned that random sampling took place. Based on this, the results and analysis obtained can be generalized to the US population or a population with similar characteristics because the random samples are representative of the entire population across all the states of the US. In both cases, causality cannot be inferred as this is only an observational study which has non-response bias and nowhere it was mentioned that random assignment was done.
+
+* * *
+
+## Part 2: Research questions
+
+### Research quesion 1: 
+**Relation between height(htin4), weight (wtkg3) and 'joinpain' (how bad was joint pain?)Describe the distributions and which probabilistic distributions are skewed (positively or negatively/ right or left) - Distribution of  Height(inches) htin4 w.r.t 'joinpain' or wtkg3 w.r.t 'joinpain'? **
+
+This is of interest because it helps understand to decide on which variable to use for predictive modelling. If the variables are highly skewed, they have to be transformed and then used to get accurae predictions.
+
+* * *
+
+### Research quesion 2: 
+**Relation between people who have coronary heart disease (cvdcrhd4) and those who are diagnosed with heartattack (cvfinfr4) using comparison between states of maximum adnd minimum respondents?**
+
+Association of two same organ ailments would be helpful in whether both have to be treated separately or together. The check of whether this varies across different states is to understand whether it matters if the people are located in one state over the other. It can be understood whether '_state' variable has any association. For instance if it really varies between different states, more variables can be thought about from within the data or externally during the causal analysis.
+
+* * *
+### Research quesion 3:
+**Are frequency of feeling depressed in the past days (misdeprd), difficulty in concentrating or remembering (decide) are associated or dependent?**
+
+Correlation finding is useful as this is an observational study and eventually might help in finding stronger evidence for causality (only after carrying some random experiments but not from this study solely). 
+
+* * *
+
+## Part 3: Exploratory data analysis
+
+### Research quesion 1: Code
+
+```{r}
+#checking the type of variable
+str(brfss2013$wtkg3)
+str(brfss2013$htin4)
+str(brfss2013$joinpain)
+
+#creating new df so that there are no 'NA' values in the varibles under consideration
+brfss_joinpain <- brfss2013 %>%
+  filter(!is.na(joinpain),!is.na(htin4), !is.na(wtkg3)) %>%
+  mutate(wtkg3_actual = wtkg3/100) ##Assumption: The calculated weight variable wtkg3 divided by 100 makes sense hence added new variable wtkg3_actual 
+
+#str(brfss_joinpain$wtkg3_actual)
+  
+#converting int values of levels in 'joinpain' to factor so that they can be ordered properly in denotion
+brfss_joinpain[, 'joinpain']  <- factor(brfss_joinpain[,'joinpain'])
+str(brfss_joinpain$joinpain)    #%>%
+
+#TO get an idea of summary statistics of heights  
+brfss_joinpain %>%
+  group_by(joinpain) %>%
+  summarise(count=n(), mean_height = mean(htin4), median_ht = median(htin4), min_ht = min(htin4), max_ht = max(htin4), iqr_ht = IQR(htin4), sd_ht = sd(htin4), var_ht = var(htin4))
+
+```
+
+
+```{r}
+#To get an idea of summary stats of weights (kg)
+brfss_joinpain %>%
+  group_by(joinpain) %>%
+  summarise(count=n(), mean_wt = mean(wtkg3_actual), median_wt = median(wtkg3_actual), min_wt = min(wtkg3_actual), max_wt = max(wtkg3_actual), iqr_wt = IQR(wtkg3_actual), sd_wt = sd(wtkg3_actual), var_wt = var(wtkg3_actual))
+```
+
+```{r}
+#plot probability distributions by categorical level of the variable 'joinpain' for height
+#dim(brfss_joinpain)
+ggplot(brfss_joinpain, aes(x = htin4, colour = joinpain)) + geom_density() + labs(x = "height (inches)", y = "prob_density")
+
+```
+
+```{r}
+#plot probability distributions by categorical level of the variable 'joinpain' for weight
+
+ggplot(brfss_joinpain, aes(x = wtkg3_actual, colour = joinpain)) + geom_density() + labs(x = "weight (kg)", y = "prob_density")
+  
+```
+
+### Narrative of question 1:
+With respect to own scales of the above two plots, distributions of heigts and weights across categories of the joinpain variable are both right skewed. Skewness of both the plots can be verified with the summary statistics calculated before the plots were made. Both of them need further adjustment via normalization(not understood completely, out of scope for this course) or other techniques to use them in the predictive models for higher accuracy.
+
+***
+
+
+### Research quesion 2: Code
+
+```{r}
+#check variable type
+str(brfss2013$cvdinfr4)
+str(brfss2013$cvdcrhd4)
+str(brfss2013$X_state)
+
+#_state is not allowed, so replacement is done
+grep("state", names(brfss2013), value = TRUE)
+```
+
+```{r}
+# number of respondents grouped by state
+statewise_count <- brfss2013 %>%
+  group_by(X_state) %>%
+  summarise(count = n())
+
+  #arrange(desc(countX_state))
+#finding the descending order
+statewise_count %>%
+  #summarise(max(count), min(count))
+  arrange(desc(count))
+
+```
+
+```{r}
+# new dataframe creation for the purpose of answering this specific question
+brfss_heartattack <- brfss2013 %>%
+  filter(!is.na(cvdinfr4),!is.na(cvdcrhd4), X_state %in% c("Florida","Guam")) 
+
+#New variable to get percentage in the plots based on select variable
+brfss_heartattack %>%
+  group_by(X_state, cvdinfr4, cvdcrhd4) %>%
+  summarise(count = n()) %>%
+  mutate(percentage_count = 100 * count/sum(count)) %>%
+
+#plot coronary heart disease along x axis, cvdinfr4 in a different colour
+ggplot(aes(x=cvdcrhd4, y = percentage_count, fill=cvdinfr4)) +
+#plot cvdinfr4 alongside cvdcrhd4 ("dodge", alternatively use "stack") and make #a seperate graph for both values of cvdcrhd4
+geom_bar(stat = "identity",position = "dodge") + 
+  # To split across the states considered
+  facet_wrap(~X_state) + 
+  # Beautify with color codes
+  scale_fill_manual("Condition", values = alpha( c("firebrick", "dodgerblue4"), 1) ) + 
+  labs(x = "Ever Diagnosed With Angina Or Coronary Heart Disease", y = "percentage diagnosed with heart attack based on x-variable")
+
+
+```
+
+### Narrative of question 2: 
+The X_state variable is not associated with the link between diagnosing with heart attack based on having coronory heart disease because no matter the state has maximum respondents (Florida) or minimum respondents (Guam), the proportions of those who are diagnosed with coronory heart disease are also diagnosed with heart attack are almost same. Implicity, there is an association between having coronoary heart disease and not having coronoary heart disease with having a heart attack. Hence, variable x is associated with the heart attack condition but state variable is not associated with the correlation of earlier two. Summary statistics answering this question is out of scope for this question because it is an analysis between categorical variables.
+
+
+***
+
+### Research quesion 3: Code 
+```{r}
+#checking variable type
+str(brfss2013$misdeprd)
+str(brfss2013$decide)
+
+#data frame without NAs for the variables under consideration
+brfss_dep_conc <- brfss2013 %>%
+  filter(!is.na(misdeprd),!is.na(decide)) 
+  
+  #group_by(misdeprd, decide) %>%
+  #summarise(n())
+
+#stacked bar plot
+ggplot(brfss_dep_conc, aes(x = misdeprd)) + geom_bar(aes(fill = decide), position = 'fill') + labs(x = "How Often Feel Depressed Past 30 Days", y = "proportion of Yes/No for having diffculty concentrating")
+
+```
+
+### Narrative question 3: 
+The stacked bar plot above shows that there is a clear association (dependency) between DECIDE and MISDEPRD. There is an increasing trend for proportion of people who didn't face difficulty in concentrating or remembering (decide) in each category of the variable on x-axis (How often people were depressed in the last 30 days) from left to right. Summary statistics answering this question is out of scope for this question because it is an analysis between categorical variables.
+

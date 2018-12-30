@@ -1,0 +1,13 @@
+book_filename: "intro-to-data-prob"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+output_dir: "docs"
+
+
+rmd_files: ["index.Rmd",
+            "01_intro_to_r_Coursera.Rmd",
+            "02_intro_to_data_Coursera.Rmd",
+            "03_probability_Coursera.Rmd",
+            "04_intro_data_prob_project.Rmd"]

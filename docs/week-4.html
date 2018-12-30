@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Week 4 | Intro to data and Probability</title>
+  <meta name="description" content="This is my course activity for the Introduction to Probability and Data offered by Duke University on Coursera">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Week 4 | Intro to data and Probability" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is my course activity for the Introduction to Probability and Data offered by Duke University on Coursera" />
+  <meta name="github-repo" content="akshaykumarreddy/intro-data-prob" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Week 4 | Intro to data and Probability" />
+  
+  <meta name="twitter:description" content="This is my course activity for the Introduction to Probability and Data offered by Duke University on Coursera" />
+  
+
+<meta name="author" content="Akshay Kotha">
+
+
+<meta name="date" content="2018-12-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="week-3.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to data and Probability</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a><ul>
+<li class="chapter" data-level="0.1" data-path="week-1.html"><a href="week-1.html#rstudio"><i class="fa fa-check"></i><b>0.1</b> RStudio</a></li>
+<li class="chapter" data-level="0.2" data-path="week-1.html"><a href="week-1.html#r-packages"><i class="fa fa-check"></i><b>0.2</b> R Packages</a></li>
+<li class="chapter" data-level="0.3" data-path="week-1.html"><a href="week-1.html#dataset-1-dr.arbuthnots-baptism-records"><i class="fa fa-check"></i><b>0.3</b> Dataset 1: Dr. Arbuthnot’s Baptism Records</a><ul>
+<li class="chapter" data-level="0.3.1" data-path="week-1.html"><a href="week-1.html#r-markdown"><i class="fa fa-check"></i><b>0.3.1</b> R Markdown</a></li>
+<li class="chapter" data-level="0.3.2" data-path="week-1.html"><a href="week-1.html#some-exploration"><i class="fa fa-check"></i><b>0.3.2</b> Some Exploration</a></li>
+<li class="chapter" data-level="0.3.3" data-path="week-1.html"><a href="week-1.html#r-as-a-big-calculator"><i class="fa fa-check"></i><b>0.3.3</b> R as a big calculator</a></li>
+<li class="chapter" data-level="0.3.4" data-path="week-1.html"><a href="week-1.html#adding-a-new-variable-to-the-data-frame"><i class="fa fa-check"></i><b>0.3.4</b> Adding a new variable to the data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="week-1.html"><a href="week-1.html#dataset-2-present-birth-records"><i class="fa fa-check"></i><b>0.4</b> Dataset 2: Present birth records</a></li>
+<li class="chapter" data-level="0.5" data-path="week-1.html"><a href="week-1.html#resources-for-learning-r-and-working-in-rstudio"><i class="fa fa-check"></i><b>0.5</b> Resources for learning R and working in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i>Week 2</a><ul>
+<li class="chapter" data-level="0.6" data-path="week-2.html"><a href="week-2.html#getting-started"><i class="fa fa-check"></i><b>0.6</b> Getting started</a><ul>
+<li class="chapter" data-level="0.6.1" data-path="week-2.html"><a href="week-2.html#load-packages"><i class="fa fa-check"></i><b>0.6.1</b> Load packages</a></li>
+<li class="chapter" data-level="0.6.2" data-path="week-2.html"><a href="week-2.html#data"><i class="fa fa-check"></i><b>0.6.2</b> Data</a></li>
+<li class="chapter" data-level="0.6.3" data-path="week-2.html"><a href="week-2.html#seven-verbs"><i class="fa fa-check"></i><b>0.6.3</b> Seven verbs</a></li>
+</ul></li>
+<li class="chapter" data-level="0.7" data-path="week-2.html"><a href="week-2.html#analysis"><i class="fa fa-check"></i><b>0.7</b> Analysis</a><ul>
+<li class="chapter" data-level="0.7.1" data-path="week-2.html"><a href="week-2.html#departure-delays-in-flights-to-raleigh-durham-rdu"><i class="fa fa-check"></i><b>0.7.1</b> Departure delays in flights to Raleigh-Durham (RDU)</a></li>
+<li class="chapter" data-level="0.7.2" data-path="week-2.html"><a href="week-2.html#departure-delays-over-months"><i class="fa fa-check"></i><b>0.7.2</b> Departure delays over months</a></li>
+<li class="chapter" data-level="0.7.3" data-path="week-2.html"><a href="week-2.html#on-time-departure-rate-for-nyc-airports"><i class="fa fa-check"></i><b>0.7.3</b> On time departure rate for NYC airports</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i>Week 3</a><ul>
+<li class="chapter" data-level="0.8" data-path="week-3.html"><a href="week-3.html#hot-hands"><i class="fa fa-check"></i><b>0.8</b> Hot Hands</a></li>
+<li class="chapter" data-level="0.9" data-path="week-3.html"><a href="week-3.html#getting-started-1"><i class="fa fa-check"></i><b>0.9</b> Getting Started</a><ul>
+<li class="chapter" data-level="0.9.1" data-path="week-3.html"><a href="week-3.html#load-packages-1"><i class="fa fa-check"></i><b>0.9.1</b> Load packages</a></li>
+<li class="chapter" data-level="0.9.2" data-path="week-3.html"><a href="week-3.html#data-1"><i class="fa fa-check"></i><b>0.9.2</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="0.10" data-path="week-3.html"><a href="week-3.html#compared-to-what"><i class="fa fa-check"></i><b>0.10</b> Compared to What?</a></li>
+<li class="chapter" data-level="0.11" data-path="week-3.html"><a href="week-3.html#simulations-in-r"><i class="fa fa-check"></i><b>0.11</b> Simulations in R</a></li>
+<li class="chapter" data-level="0.12" data-path="week-3.html"><a href="week-3.html#simulating-the-independent-shooter"><i class="fa fa-check"></i><b>0.12</b> Simulating the Independent Shooter</a><ul>
+<li class="chapter" data-level="0.12.1" data-path="week-3.html"><a href="week-3.html#comparing-kobe-bryant-to-the-independent-shooter"><i class="fa fa-check"></i><b>0.12.1</b> Comparing Kobe Bryant to the Independent Shooter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html"><i class="fa fa-check"></i>Week 4</a><ul>
+<li class="chapter" data-level="0.13" data-path="week-4.html"><a href="week-4.html#setup"><i class="fa fa-check"></i><b>0.13</b> Setup</a><ul>
+<li class="chapter" data-level="0.13.1" data-path="week-4.html"><a href="week-4.html#load-packages-2"><i class="fa fa-check"></i><b>0.13.1</b> Load packages</a></li>
+<li class="chapter" data-level="0.13.2" data-path="week-4.html"><a href="week-4.html#load-data"><i class="fa fa-check"></i><b>0.13.2</b> Load data</a></li>
+</ul></li>
+<li class="chapter" data-level="0.14" data-path="week-4.html"><a href="week-4.html#part-1-data"><i class="fa fa-check"></i><b>0.14</b> Part 1: Data</a></li>
+<li class="chapter" data-level="0.15" data-path="week-4.html"><a href="week-4.html#part-2-research-questions"><i class="fa fa-check"></i><b>0.15</b> Part 2: Research questions</a><ul>
+<li class="chapter" data-level="0.15.1" data-path="week-4.html"><a href="week-4.html#research-quesion-1"><i class="fa fa-check"></i><b>0.15.1</b> Research quesion 1:</a></li>
+<li class="chapter" data-level="0.15.2" data-path="week-4.html"><a href="week-4.html#research-quesion-2"><i class="fa fa-check"></i><b>0.15.2</b> Research quesion 2:</a></li>
+<li class="chapter" data-level="0.15.3" data-path="week-4.html"><a href="week-4.html#research-quesion-3"><i class="fa fa-check"></i><b>0.15.3</b> Research quesion 3:</a></li>
+</ul></li>
+<li class="chapter" data-level="0.16" data-path="week-4.html"><a href="week-4.html#part-3-exploratory-data-analysis"><i class="fa fa-check"></i><b>0.16</b> Part 3: Exploratory data analysis</a><ul>
+<li class="chapter" data-level="0.16.1" data-path="week-4.html"><a href="week-4.html#research-quesion-1-code"><i class="fa fa-check"></i><b>0.16.1</b> Research quesion 1: Code</a></li>
+<li class="chapter" data-level="0.16.2" data-path="week-4.html"><a href="week-4.html#narrative-of-question-1"><i class="fa fa-check"></i><b>0.16.2</b> Narrative of question 1:</a></li>
+<li class="chapter" data-level="0.16.3" data-path="week-4.html"><a href="week-4.html#research-quesion-2-code"><i class="fa fa-check"></i><b>0.16.3</b> Research quesion 2: Code</a></li>
+<li class="chapter" data-level="0.16.4" data-path="week-4.html"><a href="week-4.html#narrative-of-question-2"><i class="fa fa-check"></i><b>0.16.4</b> Narrative of question 2:</a></li>
+<li class="chapter" data-level="0.16.5" data-path="week-4.html"><a href="week-4.html#research-quesion-3-code"><i class="fa fa-check"></i><b>0.16.5</b> Research quesion 3: Code</a></li>
+<li class="chapter" data-level="0.16.6" data-path="week-4.html"><a href="week-4.html#narrative-question-3"><i class="fa fa-check"></i><b>0.16.6</b> Narrative question 3:</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to data and Probability</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-4" class="section level1 unnumbered">
+<h1>Week 4</h1>
+<div id="setup" class="section level2">
+<h2><span class="header-section-number">0.13</span> Setup</h2>
+<div id="load-packages-2" class="section level3">
+<h3><span class="header-section-number">0.13.1</span> Load packages</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(statsr)</code></pre></div>
+</div>
+<div id="load-data" class="section level3">
+<h3><span class="header-section-number">0.13.2</span> Load data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;brfss2013.RData&quot;</span>)</code></pre></div>
+<hr />
+</div>
+</div>
+<div id="part-1-data" class="section level2">
+<h2><span class="header-section-number">0.14</span> Part 1: Data</h2>
+<p>There are two types of observations in general. 1. Data collected via landline telephone interviews. 2. Data collected via cellular phone interviews. It is also mentioned that all the responses were self-reported which is similar to volunteering to answer the questionnairre. When it comes to landline telephone interviews, disproportionte stratified sampling(DSS) was done which implies the results would be representative of entire population. DSS might have been done to cater for the need to represent the entire population. When it comes to cellular phone interviews, it is mentioned that random sampling took place. Based on this, the results and analysis obtained can be generalized to the US population or a population with similar characteristics because the random samples are representative of the entire population across all the states of the US. In both cases, causality cannot be inferred as this is only an observational study which has non-response bias and nowhere it was mentioned that random assignment was done.</p>
+<hr />
+</div>
+<div id="part-2-research-questions" class="section level2">
+<h2><span class="header-section-number">0.15</span> Part 2: Research questions</h2>
+<div id="research-quesion-1" class="section level3">
+<h3><span class="header-section-number">0.15.1</span> Research quesion 1:</h3>
+<p><strong>Relation between height(htin4), weight (wtkg3) and ‘joinpain’ (how bad was joint pain?)Describe the distributions and which probabilistic distributions are skewed (positively or negatively/ right or left) - Distribution of Height(inches) htin4 w.r.t ‘joinpain’ or wtkg3 w.r.t ‘joinpain’? </strong></p>
+<p>This is of interest because it helps understand to decide on which variable to use for predictive modelling. If the variables are highly skewed, they have to be transformed and then used to get accurae predictions.</p>
+<hr />
+</div>
+<div id="research-quesion-2" class="section level3">
+<h3><span class="header-section-number">0.15.2</span> Research quesion 2:</h3>
+<p><strong>Relation between people who have coronary heart disease (cvdcrhd4) and those who are diagnosed with heartattack (cvfinfr4) using comparison between states of maximum adnd minimum respondents?</strong></p>
+<p>Association of two same organ ailments would be helpful in whether both have to be treated separately or together. The check of whether this varies across different states is to understand whether it matters if the people are located in one state over the other. It can be understood whether ’_state’ variable has any association. For instance if it really varies between different states, more variables can be thought about from within the data or externally during the causal analysis.</p>
+<hr />
+</div>
+<div id="research-quesion-3" class="section level3">
+<h3><span class="header-section-number">0.15.3</span> Research quesion 3:</h3>
+<p><strong>Are frequency of feeling depressed in the past days (misdeprd), difficulty in concentrating or remembering (decide) are associated or dependent?</strong></p>
+<p>Correlation finding is useful as this is an observational study and eventually might help in finding stronger evidence for causality (only after carrying some random experiments but not from this study solely).</p>
+<hr />
+</div>
+</div>
+<div id="part-3-exploratory-data-analysis" class="section level2">
+<h2><span class="header-section-number">0.16</span> Part 3: Exploratory data analysis</h2>
+<div id="research-quesion-1-code" class="section level3">
+<h3><span class="header-section-number">0.16.1</span> Research quesion 1: Code</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#checking the type of variable</span>
+<span class="kw">str</span>(brfss2013<span class="op">$</span>wtkg3)</code></pre></div>
+<pre><code>##  int [1:491775] 11340 5761 7257 5806 12020 10206 4808 NA 10659 7711 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(brfss2013<span class="op">$</span>htin4)</code></pre></div>
+<pre><code>##  int [1:491775] 67 70 64 64 72 63 60 65 74 65 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(brfss2013<span class="op">$</span>joinpain)</code></pre></div>
+<pre><code>##  int [1:491775] 7 NA 5 NA NA NA 3 8 4 NA ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#creating new df so that there are no &#39;NA&#39; values in the varibles under consideration</span>
+brfss_joinpain &lt;-<span class="st"> </span>brfss2013 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(joinpain),<span class="op">!</span><span class="kw">is.na</span>(htin4), <span class="op">!</span><span class="kw">is.na</span>(wtkg3)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">wtkg3_actual =</span> wtkg3<span class="op">/</span><span class="dv">100</span>) ##Assumption: The calculated weight variable wtkg3 divided by 100 makes sense hence added new variable wtkg3_actual 
+
+<span class="co">#str(brfss_joinpain$wtkg3_actual)</span>
+  
+<span class="co">#converting int values of levels in &#39;joinpain&#39; to factor so that they can be ordered properly in denotion</span>
+brfss_joinpain[, <span class="st">&#39;joinpain&#39;</span>]  &lt;-<span class="st"> </span><span class="kw">factor</span>(brfss_joinpain[,<span class="st">&#39;joinpain&#39;</span>])
+<span class="kw">str</span>(brfss_joinpain<span class="op">$</span>joinpain)    <span class="co">#%&gt;%</span></code></pre></div>
+<pre><code>##  Factor w/ 11 levels &quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,..: 8 6 4 5 9 6 5 3 8 8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#TO get an idea of summary statistics of heights  </span>
+brfss_joinpain <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(joinpain) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count=</span><span class="kw">n</span>(), <span class="dt">mean_height =</span> <span class="kw">mean</span>(htin4), <span class="dt">median_ht =</span> <span class="kw">median</span>(htin4), <span class="dt">min_ht =</span> <span class="kw">min</span>(htin4), <span class="dt">max_ht =</span> <span class="kw">max</span>(htin4), <span class="dt">iqr_ht =</span> <span class="kw">IQR</span>(htin4), <span class="dt">sd_ht =</span> <span class="kw">sd</span>(htin4), <span class="dt">var_ht =</span> <span class="kw">var</span>(htin4))</code></pre></div>
+<pre><code>## # A tibble: 11 x 9
+##    joinpain count mean_height median_ht min_ht max_ht iqr_ht sd_ht var_ht
+##    &lt;fct&gt;    &lt;int&gt;       &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 0        10658        66.4        66     40     87      7  4.18   17.5
+##  2 1         8716        66.7        66     48     83      6  4.09   16.7
+##  3 2        14330        66.7        66      2     81      6  4.08   16.6
+##  4 3        17800        66.5        66     36     92      6  4.03   16.3
+##  5 4        15440        66.2        66     48     83      6  4.03   16.2
+##  6 5        22675        65.8        65     41     87      5  4.00   16.0
+##  7 6        12169        66.0        66     45     85      6  4.10   16.8
+##  8 7        13073        66.4        66     48   6123      6 53.1  2823. 
+##  9 8        14739        65.6        65     38     86      5  4.08   16.7
+## 10 9         3728        65.5        65     50     84      5  4.07   16.6
+## 11 10        8252        65.0        64     48     90      5  3.95   15.6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#To get an idea of summary stats of weights (kg)</span>
+brfss_joinpain <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(joinpain) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count=</span><span class="kw">n</span>(), <span class="dt">mean_wt =</span> <span class="kw">mean</span>(wtkg3_actual), <span class="dt">median_wt =</span> <span class="kw">median</span>(wtkg3_actual), <span class="dt">min_wt =</span> <span class="kw">min</span>(wtkg3_actual), <span class="dt">max_wt =</span> <span class="kw">max</span>(wtkg3_actual), <span class="dt">iqr_wt =</span> <span class="kw">IQR</span>(wtkg3_actual), <span class="dt">sd_wt =</span> <span class="kw">sd</span>(wtkg3_actual), <span class="dt">var_wt =</span> <span class="kw">var</span>(wtkg3_actual))</code></pre></div>
+<pre><code>## # A tibble: 11 x 9
+##    joinpain count mean_wt median_wt min_wt max_wt iqr_wt sd_wt var_wt
+##    &lt;fct&gt;    &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 0        10658    79.7      77.1  25.0    231.   25.4  20.3   410.
+##  2 1         8716    79.4      77.1  36.3    209.   25.0  19.2   368.
+##  3 2        14330    81.1      79.4   0.02   213.   22.7  19.4   378.
+##  4 3        17800    81.7      79.4  31.8    290.   24.5  20.1   403.
+##  5 4        15440    82.0      79.4  25.0    250    24.9  21.0   441.
+##  6 5        22675    81.3      78.5  22.7    272.   24.0  20.9   435.
+##  7 6        12169    83.9      81.6  24.5    261.   27.2  22.6   511.
+##  8 7        13073    85.3      81.6   0.02   272.   29.5  23.1   532.
+##  9 8        14739    84.8      81.6  24.5    263.   29.5  23.7   562.
+## 10 9         3728    86.8      82.6  36.3    207.   29.9  24.6   604.
+## 11 10        8252    84.4      81.2  24.0    272.   29.0  24.0   578.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot probability distributions by categorical level of the variable &#39;joinpain&#39; for height</span>
+<span class="co">#dim(brfss_joinpain)</span>
+<span class="kw">ggplot</span>(brfss_joinpain, <span class="kw">aes</span>(<span class="dt">x =</span> htin4, <span class="dt">colour =</span> joinpain)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;height (inches)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;prob_density&quot;</span>)</code></pre></div>
+<p><img src="04_intro_data_prob_project_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot probability distributions by categorical level of the variable &#39;joinpain&#39; for weight</span>
+
+<span class="kw">ggplot</span>(brfss_joinpain, <span class="kw">aes</span>(<span class="dt">x =</span> wtkg3_actual, <span class="dt">colour =</span> joinpain)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;weight (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;prob_density&quot;</span>)</code></pre></div>
+<p><img src="04_intro_data_prob_project_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="narrative-of-question-1" class="section level3">
+<h3><span class="header-section-number">0.16.2</span> Narrative of question 1:</h3>
+<p>With respect to own scales of the above two plots, distributions of heigts and weights across categories of the joinpain variable are both right skewed. Skewness of both the plots can be verified with the summary statistics calculated before the plots were made. Both of them need further adjustment via normalization(not understood completely, out of scope for this course) or other techniques to use them in the predictive models for higher accuracy.</p>
+<hr />
+</div>
+<div id="research-quesion-2-code" class="section level3">
+<h3><span class="header-section-number">0.16.3</span> Research quesion 2: Code</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#check variable type</span>
+<span class="kw">str</span>(brfss2013<span class="op">$</span>cvdinfr4)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;Yes&quot;,&quot;No&quot;: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(brfss2013<span class="op">$</span>cvdcrhd4)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;Yes&quot;,&quot;No&quot;: NA 2 2 2 2 2 2 1 2 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(brfss2013<span class="op">$</span>X_state)</code></pre></div>
+<pre><code>##  Factor w/ 55 levels &quot;0&quot;,&quot;Alabama&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#_state is not allowed, so replacement is done</span>
+<span class="kw">grep</span>(<span class="st">&quot;state&quot;</span>, <span class="kw">names</span>(brfss2013), <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;X_state&quot;  &quot;stateres&quot; &quot;cstate&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># number of respondents grouped by state</span>
+statewise_count &lt;-<span class="st"> </span>brfss2013 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(X_state) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>())
+
+  <span class="co">#arrange(desc(countX_state))</span>
+<span class="co">#finding the descending order</span>
+statewise_count <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co">#summarise(max(count), min(count))</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</code></pre></div>
+<pre><code>## # A tibble: 55 x 2
+##    X_state       count
+##    &lt;fct&gt;         &lt;int&gt;
+##  1 Florida       33668
+##  2 Kansas        23282
+##  3 Nebraska      17139
+##  4 Massachusetts 15071
+##  5 Minnesota     14340
+##  6 New Jersey    13776
+##  7 Colorado      13649
+##  8 Maryland      13011
+##  9 Utah          12769
+## 10 Michigan      12761
+## # ... with 45 more rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># new dataframe creation for the purpose of answering this specific question</span>
+brfss_heartattack &lt;-<span class="st"> </span>brfss2013 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(cvdinfr4),<span class="op">!</span><span class="kw">is.na</span>(cvdcrhd4), X_state <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Florida&quot;</span>,<span class="st">&quot;Guam&quot;</span>)) 
+
+<span class="co">#New variable to get percentage in the plots based on select variable</span>
+brfss_heartattack <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(X_state, cvdinfr4, cvdcrhd4) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percentage_count =</span> <span class="dv">100</span> <span class="op">*</span><span class="st"> </span>count<span class="op">/</span><span class="kw">sum</span>(count)) <span class="op">%&gt;%</span>
+
+<span class="co">#plot coronary heart disease along x axis, cvdinfr4 in a different colour</span>
+<span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>cvdcrhd4, <span class="dt">y =</span> percentage_count, <span class="dt">fill=</span>cvdinfr4)) <span class="op">+</span>
+<span class="co">#plot cvdinfr4 alongside cvdcrhd4 (&quot;dodge&quot;, alternatively use &quot;stack&quot;) and make #a seperate graph for both values of cvdcrhd4</span>
+<span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>,<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="co"># To split across the states considered</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>X_state) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="co"># Beautify with color codes</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="st">&quot;Condition&quot;</span>, <span class="dt">values =</span> <span class="kw">alpha</span>( <span class="kw">c</span>(<span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;dodgerblue4&quot;</span>), <span class="dv">1</span>) ) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Ever Diagnosed With Angina Or Coronary Heart Disease&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;percentage diagnosed with heart attack based on x-variable&quot;</span>)</code></pre></div>
+<p><img src="04_intro_data_prob_project_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="narrative-of-question-2" class="section level3">
+<h3><span class="header-section-number">0.16.4</span> Narrative of question 2:</h3>
+<p>The X_state variable is not associated with the link between diagnosing with heart attack based on having coronory heart disease because no matter the state has maximum respondents (Florida) or minimum respondents (Guam), the proportions of those who are diagnosed with coronory heart disease are also diagnosed with heart attack are almost same. Implicity, there is an association between having coronoary heart disease and not having coronoary heart disease with having a heart attack. Hence, variable x is associated with the heart attack condition but state variable is not associated with the correlation of earlier two. Summary statistics answering this question is out of scope for this question because it is an analysis between categorical variables.</p>
+<hr />
+</div>
+<div id="research-quesion-3-code" class="section level3">
+<h3><span class="header-section-number">0.16.5</span> Research quesion 3: Code</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#checking variable type</span>
+<span class="kw">str</span>(brfss2013<span class="op">$</span>misdeprd)</code></pre></div>
+<pre><code>##  Factor w/ 5 levels &quot;All&quot;,&quot;Most&quot;,&quot;Some&quot;,..: 5 5 5 5 NA NA NA NA NA NA ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(brfss2013<span class="op">$</span>decide)</code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;Yes&quot;,&quot;No&quot;: 2 2 2 2 2 2 2 2 2 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#data frame without NAs for the variables under consideration</span>
+brfss_dep_conc &lt;-<span class="st"> </span>brfss2013 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(misdeprd),<span class="op">!</span><span class="kw">is.na</span>(decide)) 
+  
+  <span class="co">#group_by(misdeprd, decide) %&gt;%</span>
+  <span class="co">#summarise(n())</span>
+
+<span class="co">#stacked bar plot</span>
+<span class="kw">ggplot</span>(brfss_dep_conc, <span class="kw">aes</span>(<span class="dt">x =</span> misdeprd)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> decide), <span class="dt">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;How Often Feel Depressed Past 30 Days&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;proportion of Yes/No for having diffculty concentrating&quot;</span>)</code></pre></div>
+<p><img src="04_intro_data_prob_project_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="narrative-question-3" class="section level3">
+<h3><span class="header-section-number">0.16.6</span> Narrative question 3:</h3>
+<p>The stacked bar plot above shows that there is a clear association (dependency) between DECIDE and MISDEPRD. There is an increasing trend for proportion of people who didn’t face difficulty in concentrating or remembering (decide) in each category of the variable on x-axis (How often people were depressed in the last 30 days) from left to right. Summary statistics answering this question is out of scope for this question because it is an analysis between categorical variables.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04_intro_data_prob_project.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["intro-to-data-prob.pdf", "intro-to-data-prob.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
